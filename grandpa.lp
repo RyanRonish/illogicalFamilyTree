@@ -9,14 +9,14 @@ husband(me, widow).
 % The widow had a grownup daughter (who becomes your stepdaughter)
 mother(widow, daughter).
 
-% Your father married that daughter
+% Your father married that daughter (your stepdaughter)
 husband(father, daughter).
 
 % You and the widow had a baby boy
 father(me, baby).
 mother(widow, baby).
 
-% The daughter and your father had a son
+% The daughter (your stepmother) and your father had a son
 father(father, son).
 mother(daughter, son).
 
@@ -37,6 +37,4 @@ uncle(X, Y) :- mother(Z, Y), father(F, X), father(F, Z), X != Z.
 % Grandpa alias for grandfather
 grandpa(X, Y) :- grandfather(X, Y).
 
-
-
-#show grandpa/2
+#show grandpa/2.
