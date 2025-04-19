@@ -1,15 +1,16 @@
 %Ryan Ronish
-%CS 395 Artificial Intelligence
+%CS 395 Artificial Intelligence.
 %4-19-2025
-%Implement the "Grandpa problem" in Clingo
+%Implement the "Grandpa problem" in Clingo.
+%Run this command - clingo grandpa.lp - to see the results.
 
-% You (me) married a widow
+% You the husband are married to a widow.
 husband(me, widow).
 
-% The widow had a grownup daughter (who becomes your stepdaughter)
+% The widow has a daughter, since yall are married you're the stepdad.
 mother(widow, daughter).
 
-% Your father married that daughter (your stepdaughter)
+% your dad married you're wifes daughter, so your dad married your stepdaughter
 husband(father, daughter).
 
 % You and the widow had a baby boy
@@ -24,9 +25,9 @@ mother(daughter, son).
 father(father, me).
 
 % Recursive fact to complete the loop
-father(baby, me).
+%father(baby, me).
 
-% Stepmother: married to father but not the mother
+% Stepmother is married to the father but is not the biolgical mom to that person
 stepmother(X, Y) :- husband(F, X), father(F, Y), not mother(X, Y).
 
 % Grandfather: father of someone’s parent
@@ -38,6 +39,8 @@ grandchild(Y, X) :- grandfather(X, Y).
 
 % Uncle: brother of parent
 uncle(X, Y) :- father(Z, Y), father(F, X), father(F, Z), X != Z.
+uncle(X, Y) :- mother(Z, Y), father(F, X), mother(M, Z), mother(M, X), X != Z.
+uncle(X, Y) :- father(Z, Y), father(F, X), mother(M, Z), mother(M, X), X != Z.
 uncle(X, Y) :- mother(Z, Y), father(F, X), father(F, Z), X != Z.
 
 % Grandpa alias for grandfather
@@ -47,3 +50,4 @@ grandpa(X, Y) :- grandfather(X, Y).
 #show mother/2.
 #show grandfather/2.
 #show grandpa/2.
+
