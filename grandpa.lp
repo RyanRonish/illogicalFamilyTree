@@ -17,7 +17,7 @@ husband(father, daughter).
 father(me, baby).
 mother(widow, baby).
 
-% The daughter (your stepmother) and your father had a son
+% The daughter of your wife and your father had a son, which is your grandchild
 father(father, son).
 mother(daughter, son).
 
@@ -37,7 +37,7 @@ grandfather(X, Y) :- father(X, Z), mother(Z, Y).
 % Grandchild is reverse of grandfather
 grandchild(Y, X) :- grandfather(X, Y).
 
-% Uncle: brother of parent
+% Uncle, brother of parent, or half brother 
 uncle(X, Y) :- father(Z, Y), father(F, X), father(F, Z), X != Z.
 uncle(X, Y) :- mother(Z, Y), father(F, X), mother(M, Z), mother(M, X), X != Z.
 uncle(X, Y) :- father(Z, Y), father(F, X), mother(M, Z), mother(M, X), X != Z.
