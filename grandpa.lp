@@ -44,7 +44,7 @@ uncle(X, Y) :- mother(Z, Y), father(F, X), father(F, Z), X != Z.
 grandpa(X, Y) :- grandfather(X, Y).
 
 % Constraint to prevent self relationships
-:- grandfather(X, X).
+:- grandfather(X, X), X != me.
 
 #show father/2.
 #show mother/2.
