@@ -20,6 +20,9 @@ mother(widow, baby).
 father(father, son).
 mother(daughter, son).
 
+% Your father is your parent
+father(father, me).
+
 % Stepmother: married to father but not the mother
 stepmother(X, Y) :- husband(F, X), father(F, Y), not mother(X, Y).
 
