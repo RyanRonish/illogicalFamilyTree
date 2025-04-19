@@ -37,11 +37,4 @@ uncle(X, Y) :- mother(Z, Y), father(F, X), father(F, Z), X != Z.
 % Grandpa alias for grandfather
 grandpa(X, Y) :- grandfather(X, Y).
 
-% #show husband/2.
-% #show father/2.
-% #show mother/2.
-% #show stepmother/2.
-% #show grandfather/2.
-% #show grandchild/2.
-% #show uncle/2.
-#show grandpa/2.
+grandpa/2.
