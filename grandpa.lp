@@ -46,6 +46,9 @@ uncle(X, Y) :- mother(Z, Y), father(F, X), father(F, Z), X != Z.
 % Grandpa alias for grandfather
 grandpa(X, Y) :- grandfather(X, Y).
 
+% Constraint to prevent relationships with oneself
+:- grandfather(X, X).
+
 #show father/2.
 #show mother/2.
 #show grandfather/2.
