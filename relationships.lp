@@ -1,3 +1,8 @@
+%Ryan Ronish
+%CS 395 Artificial Intelligence
+%4-19-2025
+%Implement the "Grandpa problem" in Clingo
+
 % You (me) married a widow
 husband(me, widow).
 
@@ -29,3 +34,12 @@ uncle(X, Y) :- father(Z, Y), father(F, X), father(F, Z), X != Z.
 uncle(X, Y) :- mother(Z, Y), father(F, X), father(F, Z), X != Z.
 
 grandpa(X, Y) :- grandfather(X, Y).
+
+%#show husband/2
+%#show father/2
+%#show mother/2
+%#show stepmother/2
+%#show grandfather/2
+%#show grandchild/2
+%#show uncle/2
+#show grandpa/2
