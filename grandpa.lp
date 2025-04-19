@@ -25,7 +25,7 @@ mother(daughter, son).
 father(father, me).
 
 % Recursive fact to complete the loop
-%father(baby, me).
+father(baby, me).
 
 % Stepmother is married to the father but is not the biolgical mom to that person
 stepmother(X, Y) :- husband(F, X), father(F, Y), not mother(X, Y).
